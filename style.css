@@ -82,7 +82,7 @@ body {
 
 /* Hero Section */
 .hero {
-  background-image: url('https://github.com/wonnd3r/gen/blob/main/banner2.png?raw=true');
+  background-image: url('https://github.com/wonnd3r/gen/blob/main/banner2.png?raw=true'); /* Background image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -95,6 +95,8 @@ body {
 .hero-content {
   max-width: 900px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-title {
@@ -140,17 +142,40 @@ h2 {
   color: #c9d1d9;
 }
 
+/* Smooth Diffusion Overlay */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 27, 34, 0),
+    rgba(22, 27, 34, 0.5),
+    rgba(22, 27, 34, 0.9),
+    rgba(22, 27, 34, 1)
+  );
+  z-index: 1;
+}
+
+.about::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(
+    to bottom,
+    rgba(13, 17, 23, 0),
+    rgba(13, 17, 23, 1)
+  );
+  z-index: -1;
+}
+
 /* About Section */
-.about {
-  background-color: #161b22;
-}
-
-.about-content {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
-
 .about h2 {
   font-size: 2.5rem;
   text-align: center;
@@ -165,11 +190,35 @@ h2 {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -10px; 
+  bottom: -10px;
   width: 150%;
   height: 1px;
   background: #ffffff;
-  animation: fadeIn 1s ease-in-out;
+}
+
+.about {
+  background-color: #161b22;
+  padding: 80px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  color: #c9d1d9;
+  margin-bottom: 20px;
+}
+
+.about-subtitle {
+  font-size: 1.2rem;
+  color: #8b949e;
+  margin-bottom: 40px;
 }
 
 /* Projects Section */
@@ -313,15 +362,15 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
-  background-color: #0d1117; /* Dark background (matches index.html) */
+  height: 100vh; 
+  background-color: #0d1117;
 }
 
 .login-box {
-  background: #161b22; /* Slightly lighter dark background (matches index.html) */
+  background: #161b22;
   padding: 40px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth (matches index.html) */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 400px;
   text-align: center;
@@ -330,12 +379,12 @@ footer {
 .login-box h2 {
   font-size: 2rem;
   margin-bottom: 10px;
-  color: #ffffff; /* White text (matches index.html) */
+  color: #ffffff;
 }
 
 .login-box p {
   font-size: 1rem;
-  color: #8b949e; /* Light gray text (matches index.html) */
+  color: #8b949e;
   margin-bottom: 20px;
 }
 
@@ -352,7 +401,7 @@ footer {
 
 .form-group label {
   font-size: 0.9rem;
-  color: #c9d1d9; /* Light text (matches index.html) */
+  color: #c9d1d9;
   margin-bottom: 5px;
   display: block;
 }
@@ -360,23 +409,23 @@ footer {
 .form-group input {
   width: 94.5%;
   padding: 10px;
-  border: 1px solid #30363d; /* Dark border (matches index.html) */
+  border: 1px solid #30363d;
   border-radius: 5px;
-  background: #0d1117; /* Dark background (matches index.html) */
-  color: #c9d1d9; /* Light text (matches index.html) */
+  background: #0d1117;
+  color: #c9d1d9;
   font-size: 1rem;
   outline: none;
   transition: border-color 0.3s ease;
 }
 
 .form-group input:focus {
-  border-color: #58a6ff; /* Highlight on focus (matches index.html) */
+  border-color: #58a6ff;
 }
 
 /* Login Button */
 .login-button {
-  background: #1f6feb; /* GitHub blue (matches index.html) */
-  color: #ffffff; /* White text (matches index.html) */
+  background: #1f6feb;
+  color: #ffffff;
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -386,7 +435,7 @@ footer {
 }
 
 .login-button:hover {
-  background: #58a6ff; /* Lighter blue on hover (matches index.html) */
+  background: #58a6ff; 
 }
 
 /* Additional Links (Login Page) */
@@ -397,14 +446,14 @@ footer {
 }
 
 .login-links a {
-  color: #58a6ff; /* Blue text (matches index.html) */
+  color: #58a6ff;
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.3s ease;
 }
 
 .login-links a:hover {
-  color: #1f6feb; /* Darker blue on hover (matches index.html) */
+  color: #1f6feb;
 }
 
 /* Animations */

@@ -1,1 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Once</title>
+    <style>
+        body {
+            font-family: 'Mona Sans', sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+        }
 
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        #inputText {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            color: #c9d1d9;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        #inputText:focus {
+            border-color: #58a6ff;
+        }
+
+        #display {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-top: 40px;
+            min-height: 80px;
+            padding: 20px;
+            color: #ffffff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #display.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            #inputText {
+                font-size: 1rem;
+                padding: 12px 18px;
+            }
+            
+            #display {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter Text and Press Enter</h1>
+    <input type="text" id="inputText" placeholder="Type your text here..." autofocus>
+    <div id="display"></div>
+
+    <script>
+        const inputField = document.getElementById("inputText");
+        const display = document.getElementById("display");
+
+        inputField.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                if (this.value.trim()) {
+                    displayWords(this.value.trim());
+                    this.value = "";
+                }
+            }
+        });
+
+        function displayWords(text) {
+            const words = text.split(" ");
+            let index = 0;
+            
+            display.classList.remove("show");
+            
+            function showNextWord() {
+                if (index < words.length) {
+                    display.textContent = words[index];
+                    display.classList.add("show");
+                    index++;
+                    setTimeout(() => {
+                        display.classList.remove("show");
+                        setTimeout(showNextWord, 100);
+                    }, 200);
+                }
+            }
+            
+            showNextWord();
+        }
+    </script>
+</body>
+</html>

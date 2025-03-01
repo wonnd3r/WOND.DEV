@@ -1,0 +1,142 @@
+body {
+    font-family: 'Mona Sans', sans-serif;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .background-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(48, 54, 61, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(48, 54, 61, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: -1;
+  }
+  
+  .controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #161b22;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #30363d;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .control-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .speed-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #0d1117;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+  }
+  
+  #wpm {
+    width: 80px;
+    background: none;
+    border: none;
+    color: #c9d1d9;
+    font-size: 1rem;
+    text-align: right;
+    outline: none;
+  }
+  
+  #wpm::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  
+  #soundToggle, #resetButton {
+    width: 40px;
+    height: 40px;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    color: #58a6ff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  #soundToggle:hover, #resetButton:hover {
+    border-color: #58a6ff;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #ffffff;
+  }
+  
+  #inputText {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    color: #c9d1d9;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  #inputText:focus {
+    border-color: #58a6ff;
+  }
+  
+  #display {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-top: 40px;
+    min-height: 80px;
+    padding: 20px;
+    color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  #display.show {
+    opacity: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .controls {
+        top: 10px;
+        right: 10px;
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    #inputText {
+        font-size: 1rem;
+        padding: 12px 18px;
+    }
+    
+    #display {
+        font-size: 2rem;
+    }
+  }

@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "https://console.patrickschool.it/*"
+  to = "/dev.html"
+  status = 200

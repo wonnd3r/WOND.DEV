@@ -1,4 +1,4 @@
 [[redirects]]
-  from = "https://console.patrickschool.it/*"
-  to = "/dev.html"
+  from = "https://reader.patrickschool.it/*"
+  to = "/reader.html"
   status = 200

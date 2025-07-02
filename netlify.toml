@@ -1,4 +1,0 @@
-[[redirects]]
-  from = "https://reader.patrickschool.it/*"
-  to = "/reader.html"
-  status = 200
